@@ -22,8 +22,8 @@ const Calendar_list = () => {
     <View style={styles.container}>
       <CalendarList
         current={aktualnaData}
-        minDate=''
-        maxDate='2029-12-31'
+        minDate='2022-12-11'
+        maxDate='2029-12-11'
         onDayPress={selectedDateHandler}
         markedDates={
             {
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   container: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    width: 600,
     backgroundColor: '#fff'
   },
 });
