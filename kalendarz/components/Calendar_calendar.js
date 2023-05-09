@@ -1,8 +1,8 @@
-import { CalendarList } from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Calendar_list = () => {
+const Calendar_calendar = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [aktualnaData, setAktualnaData] = useState('');
 
@@ -20,7 +20,7 @@ const Calendar_list = () => {
 
   return (
     <View style={styles.container}>
-      <CalendarList
+      <Calendar
         current={aktualnaData}
         minDate=''
         maxDate='2029-12-31'
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendar_list
+export default Calendar_calendar

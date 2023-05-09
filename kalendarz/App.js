@@ -1,53 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import Agenda_calendar from './components/Agenda_calendar'
+import Calendar_list from './components/Calendar_list'
+import Calendar_calendar from './components/Calendar_calendar'
 
 export default function App() {
-  const [selectedDate, setSelectedDate] = useState('');
-  const [aktualnaData, setAktualnaData] = useState('');
-
-  useEffect(() => {
-    const d = new Date();
-    const year = d.getFullYear();
-    const month = (d.getMonth() + 1).toString().padStart(2, '0');
-    const day = d.getDate().toString().padStart(2, '0');
-    setAktualnaData(`${year}-${month}-${day}`);
-  }, []);
-
-  const wydarzenia = {
-    [aktualnaData]: [{ opis: 'Takie te' }],
-    '2023-04-20': [{ opis: 'urodziny Mścisława' }]
-  };
-
-  function selectedDateHandler(day) {
-    setSelectedDate(day.dateString);
-  }
-
-  function renderPustaData() {
-    return (
-      <View>
-        <Text>tak</Text>
-      </View>
-    );
-  }
-
-  function renderWydarzenia(wyd) {
-    return (
-      <View>
-        <Text>{wyd.opis}</Text>
-      </View>
-    );
-  }
-
-  return (
-    <View style={styles.container}>
-      <Agenda
-        items={wydarzenia}
-        renderItem={renderWydarzenia}
-        renderEmptyData={renderPustaData}
-      />
-    </View>
-  );
+  return(
+    <Calendar_list/>
+  )
 }
 
 const styles = StyleSheet.create({
