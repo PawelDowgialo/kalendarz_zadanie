@@ -1,8 +1,8 @@
 import { Calendar } from 'react-native-calendars';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-const Calendar_calendar = () => {
+const CalendarCalendar = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [aktualnaData, setAktualnaData] = useState('');
 
@@ -18,24 +18,28 @@ const Calendar_calendar = () => {
     setSelectedDate(day.dateString);
   }
 
+  const theme = {
+    calendarBackground: 'yellow',
+  };
+
   return (
     <View style={styles.container}>
       <Calendar
+        //dodatkowe
+        theme = {theme}
+        hideExtraDays = {true}
+        //
         current={aktualnaData}
         minDate=''
         maxDate='2029-12-31'
         onDayPress={selectedDateHandler}
-        markedDates={
-            {
-                [selectedDate]:{selected:true},
-                [aktualnaData]:{marked:true},
-                '2023-06-01':{marked:true , dotColor:'red'},
-                '2023-06-03':{selected:true , selectedColor:'red'},
-            }
-        }
-        
-        />
-
+        markedDates={{
+          [selectedDate]: { selected: true },
+          [aktualnaData]: { marked: true },
+          '2023-06-01': { marked: true, dotColor: 'red' },
+          '2023-06-03': { selected: true, selectedColor: 'red' },
+        }}
+      />
     </View>
   );
 }
@@ -49,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendar_calendar
+export default CalendarCalendar;

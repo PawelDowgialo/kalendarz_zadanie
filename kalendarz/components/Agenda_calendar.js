@@ -15,7 +15,7 @@ const Agenda_calendar = () => {
   }, []);
 
   const wydarzenia = {
-    [aktualnaData]: [{ opis: 'Takie te' }],
+    [aktualnaData]: [{ opis: 'Jakies zadanie do zrobienia' }],
     '2023-04-20': [{ opis: 'urodziny Mścisława' }]
   };
 
@@ -26,7 +26,7 @@ const Agenda_calendar = () => {
   function renderPustaData() {
     return (
       <View>
-        <Text>tak</Text>
+        <Text>{selectedDate}</Text>
       </View>
     );
   }
@@ -39,9 +39,21 @@ const Agenda_calendar = () => {
     );
   }
 
+  const theme = {
+    calendarBackground: 'black',
+    monthTextColor: 'white',
+    dayTextColor: 'white'
+  };
+
+
   return (
     <View style={styles.container}>
       <Agenda
+        //dodatkowe
+        theme={theme}
+        firstDay = {1}
+        //
+        onDayPress={selectedDateHandler}
         items={wydarzenia}
         renderItem={renderWydarzenia}
         renderEmptyData={renderPustaData}

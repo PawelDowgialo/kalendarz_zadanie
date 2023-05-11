@@ -18,9 +18,19 @@ const Calendar_list = () => {
     setSelectedDate(day.dateString);
   }
 
+  const theme = {
+    calendarBackground: 'black',
+    monthTextColor: 'white',
+    dayTextColor: 'white'
+  };
+
   return (
     <View style={styles.container}>
       <CalendarList
+        //dodatkowe
+        hideExtraDays={true}
+        theme={theme}
+        //
         current={aktualnaData}
         minDate='2022-12-11'
         maxDate='2029-12-11'
